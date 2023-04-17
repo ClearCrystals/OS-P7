@@ -24,6 +24,8 @@ void ext2_read_init(int fd)
         read(fd, &super, sizeof(struct ext2_super_block));              /* read super-block */
 
         if (super.s_magic != EXT2_SUPER_MAGIC) {
+		printf("%d\n", super.s_magic);
+		printf("%d\n", EXT2_SUPER_MAGIC);
                 fprintf(stderr, "read_super_block: Not a Ext2 filesystem\n");
                 exit(1);
         }
